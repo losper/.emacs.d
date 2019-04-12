@@ -1,4 +1,10 @@
-(use-package projectile :ensure)
+(use-package projectile
+  :ensure
+  :config
+  :config
+  (projectile-global-mode))
+(use-package flycheck)
+
 (use-package lsp-mode
   :ensure
   :commands lsp
@@ -8,7 +14,9 @@
   :config
   (require 'lsp-clients)          ; ocaml,css,python,bash,...
   )
-(use-package lsp-ui :ensure)
+(use-package lsp-ui
+  :ensure
+  :commands lsp-ui-mode)
 (use-package company :ensure)
 (use-package company-lsp :ensure)
     
@@ -32,5 +40,8 @@
   (global-company-mode 1)
   )
 ;; Also see lsp-project-whitelist lsp-project-blacklist ccls-root-matchers
-(require 'clang-format)
+(add-hook 'c-mode-common-hook 
+  (lambda ()
+    (add-hook (make-local-variable 'before-save-hook)
+              'lsp-format-buffer)))
 (provide 'init-cpp)

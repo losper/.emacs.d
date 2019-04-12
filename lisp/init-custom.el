@@ -1,5 +1,14 @@
+(defvar mage-init-time 'nil)
+(defun mage-display-benchmark()
+  (message "Mage loaded %s packages in %.03fs"
+           (length package-activated-list)
+           (or mage-init-time
+               (setq mage-init-time
+                     (float-time (time-subtract (current-time) before-init-time))))))
+(add-hook 'emacs-startup-hook #'mage-display-benchmark)
 
-;;; user add
+(tool-bar-mode -1)
+
 (global-auto-revert-mode t)
 (setq make-backup-files nil)
 

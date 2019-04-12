@@ -23,6 +23,9 @@
 *.mp4
 *.ts
 *.h264
+*.eld
+*.cache
+url/
 \#*
 build/*
 !build/*.bat

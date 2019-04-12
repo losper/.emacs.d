@@ -13,5 +13,8 @@
   :ensure
   :init
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+  :hook ((elpy-mode) . (lambda () (flycheck-mode)))
+  ;; (add-hook 'elpy-mode-hook 'flycheck-mode)
+  ;; (add-hook 'c-mode-hook 'flycheck-mode)
+  )
 (provide 'init-python)
