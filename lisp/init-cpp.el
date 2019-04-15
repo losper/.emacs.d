@@ -38,7 +38,7 @@
   :init
   (push 'company-lsp company-backends)
   (global-company-mode 1)
-  (setq ccls-args '("--log-file=/tmp/ccls.log"))
+  ;; (setq ccls-args '("--log-file=/tmp/ccls.log"))
   )
 ;; Also see lsp-project-whitelist lsp-project-blacklist ccls-root-matchers
 (add-hook 'c-mode-common-hook 
