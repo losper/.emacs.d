@@ -21,6 +21,12 @@
 (use-package company-lsp :ensure)
     
 (with-eval-after-load 'projectile
+  ;; (defun my-projectile-run-project (&optional prompt)
+  ;; (interactive "P")
+  ;; (let ((compilation-read-command
+  ;;        (or (not (projectile-run-command (projectile-compilation-dir)))
+  ;;            prompt)))
+  ;;   (projectile-run-project prompt)))
   (setq projectile-project-root-files-top-down-recurring
         (append '("compile_commands.json"
                   ".ccls")
